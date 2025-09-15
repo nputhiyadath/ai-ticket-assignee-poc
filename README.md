@@ -45,3 +45,57 @@ Returns:
 
 - This is a POC. The model is only as good as the mock data provided.
 - For real use, replace mock data with real labeled issues and retrain.
+
+## Docker Compose
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Setup and Running
+
+1. **Environment Configuration**
+
+   Copy the `.env` file and edit if needed:
+   ```bash
+   cp .env .env.local
+   # Edit .env.local if you want to change any default values
+   ```
+
+2. **Build and Run Services**
+
+   Build and start both Flask API and Jupyter Notebook services:
+   ```bash
+   docker-compose up --build
+   ```
+
+   Or run in detached mode:
+   ```bash
+   docker-compose up --build -d
+   ```
+
+3. **Access Services**
+
+   - **Flask API**: http://localhost:5000
+   - **Jupyter Notebook**: http://localhost:8888
+
+4. **Stop Services**
+
+   ```bash
+   docker-compose down
+   ```
+
+   To also remove volumes:
+   ```bash
+   docker-compose down -v
+   ```
+
+### Environment Variables
+
+The following environment variables can be configured in the `.env` file:
+
+- `API_PORT`: Port for the Flask API service (default: 5000)
+- `JUPYTER_PORT`: Port for the Jupyter Notebook service (default: 8888)  
+- `MODEL_PATH`: Path to the trained model file (default: model/ticket_assigner.pkl)
+- `DATA_PATH`: Path to the mock data CSV file (default: data/issues_mock.csv)
