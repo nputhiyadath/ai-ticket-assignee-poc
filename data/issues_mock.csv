@@ -1,0 +1,9 @@
+id,title,description,labels,assignee
+1,Login page error,Error when user logs in,"[\"bug\",\"frontend\"]",alice
+2,API returns 500,Server error on /api/data,"[\"bug\",\"backend\"]",bob
+3,UI not responsive,Dashboard UI not adjusting to screen,"[\"frontend\",\"ui\"]",alice
+4,Add dark mode,Feature request for dark mode,"[\"feature\",\"ui\"]",carol
+5,Data sync fails,Sync fails with timeout,"[\"bug\",\"backend\"]",bob
+6,Refactor auth code,Improve authentication logic,"[\"backend\",\"refactor\"]",bob
+7,Typo in help text,Minor typo on help page,"[\"frontend\",\"docs\"]",alice
+8,Integrate payment API,Add payment gateway support,"[\"feature\",\"backend\"]",carol
