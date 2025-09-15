@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${API_PORT:-5000}:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - MODEL_PATH=${MODEL_PATH:-model/ticket_assigner.pkl}
+      - DATA_PATH=${DATA_PATH:-data/issues_mock.csv}
+
+  jupyter:
+    image: jupyter/base-notebook:python-3.10
+    volumes:
+      - .:/home/jovyan/work
+    ports:
+      - "${JUPYTER_PORT:-8888}:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    command: start-notebook.sh --NotebookApp.token=''
