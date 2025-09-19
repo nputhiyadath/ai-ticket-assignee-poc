@@ -1,0 +1,21 @@
+{
+  "name": "ai-ticket-assignee-poc",
+  "version": "1.0.0",
+  "description": "A proof of concept for an AI-based ticket assignee predictor using Node.js",
+  "author": "nputhiyadath",
+  "main": "src/index.js",
+  "scripts": {
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+    "ai",
+    "ticket-assignment",
+    "machine-learning",
+    "nodejs",
+    "poc"
+  ],
+  "license": "MIT"
+}
