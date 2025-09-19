@@ -9,17 +9,20 @@ services:
       - "${API_PORT:-5000}:5000"
     volumes:
       - .:/app
+      - /app/node_modules
     environment:
-      - FLASK_ENV=development
-      - MODEL_PATH=${MODEL_PATH:-model/ticket_assigner.pkl}
+      - NODE_ENV=development
+      - MODEL_PATH=${MODEL_PATH:-model/ticket_assigner.json}
       - DATA_PATH=${DATA_PATH:-data/issues_mock.csv}
 
-  jupyter:
-    image: jupyter/base-notebook:python-3.10
-    volumes:
-      - .:/home/jovyan/work
-    ports:
-      - "${JUPYTER_PORT:-8888}:8888"
-    environment:
-      - JUPYTER_ENABLE_LAB=yes
-    command: start-notebook.sh --NotebookApp.token=''
+  # Optional: Keep development tools container
+  # Uncomment if you want to use a separate container for development
+  # dev:
+  #   image: node:18-slim
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   working_dir: /app
+  #   ports:
+  #     - "${DEV_PORT:-3000}:3000"
+  #   command: npm run dev
